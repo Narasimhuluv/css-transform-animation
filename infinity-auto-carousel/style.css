@@ -1,0 +1,39 @@
+.carousel {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ background-color: black;
+}
+.group {
+ border: 1px solid red;
+ display: flex;
+ gap: 1rem;
+ width: 800px;
+ overflow-x: scroll;
+ margin: auto;
+ padding: 0.5rem 0.5rem;
+ background-color: white;
+}
+
+.group::-webkit-scrollbar {
+ display: none;
+}
+
+.card {
+ background-color: violet;
+ flex: 0 0 250px;
+ position: relative;
+ height: 250px;
+
+ animation: scroll-anim 5s linear infinite;
+}
+
+@keyframes scroll-anim {
+ from {
+  transform: translateX(0);
+ }
+ to {
+  transform: translateX(-50%);
+ }
+}
