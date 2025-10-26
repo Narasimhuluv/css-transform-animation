@@ -1,0 +1,109 @@
+.heightDiv {
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.box {
+ width: 200px;
+ height: 200px;
+ background-color: orangered;
+ border-radius: 0.5rem;
+}
+
+.box:hover {
+ animation: rotateBox 5s infinite linear;
+}
+
+@keyframes rotateBox {
+ 0% {
+  transform: rotate(0deg) scale(1);
+ }
+ 50% {
+  transform: rotate(180deg) scale(1.5) skewX(20deg) translateX(200px);
+ }
+ 100% {
+  transform: rotate(0deg) scale(1);
+ }
+}
+
+.box1 {
+ width: 150px;
+ height: 150px;
+ border-radius: 50%;
+ animation: rotateBox1 both;
+ animation-timeline: view();
+ /*  */
+ animation-range: entry 20% cover 100%;
+ img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+ }
+}
+
+@keyframes rotateBox1 {
+ from {
+  transform: rotate(0deg) scale(1);
+ }
+
+ to {
+  transform: rotate(420deg) scale(1);
+ }
+}
+
+/* image div */
+.imagesDiv {
+ display: flex;
+ figure {
+  flex: 0 1 25%;
+  /* both when ever we use the scroll animations we have to use both for better control and smoother experience */
+  /* 50% means - image will appear clearly when scroll reaches to 50% of view hieght */
+  /* 25% means - image animation will starts when scroll reaches to 25% of view hieght */
+  img {
+   animation: imageAnimation both;
+   /* animation-timeline: view(auto auto); */
+   animation-timeline: view(50% 20%);
+   width: 100%;
+  }
+ }
+}
+
+@keyframes imageAnimation {
+ from {
+  filter: saturate(0) contrast(4) brightness(0.1) blur(5px);
+  opacity: 0;
+  scale: 0.95;
+  translate: 0rem 4rem;
+ }
+
+ to {
+  filter: none;
+  opacity: 1;
+  scale: 1;
+  translate: 0 0;
+ }
+}
+
+/* @keyframes imageAnimation {
+ 0% {
+  filter: saturate(0) contrast(4) brightness(0.1) blur(5px);
+  opacity: 0;
+  scale: 0.95;
+  translate: 0rem 4rem;
+ }
+
+ 50% {
+  filter: none;
+  opacity: 1;
+  scale: 1;
+  translate: 0 0;
+ }
+
+ 100% {
+  filter: saturate(0) contrast(4) brightness(0.1) blur(5px);
+  opacity: 0;
+  scale: 0.95;
+  translate: 0rem 4rem;
+ }
+} */
